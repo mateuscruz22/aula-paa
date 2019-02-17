@@ -71,22 +71,16 @@ int main(int argc, char *argv[]){
       system("cls");
       printf("Listando alunos cadastrados:\n\n");
       r = fopen("registro.txt", "r");
-      if (r != NULL)
-      {
+      if (r != NULL){
         fseek(r, 0, SEEK_END);
         tamArq = ftell(r);
         fseek(r, 0, SEEK_SET);
-        if (tamArq != 0)
-        {
+        if (tamArq != 0){
           mostrarLista(r);
-        }
-        else
-        {
+        }else{
           printf("Nao existem alunos cadastrados.\n\n");
         }
-      }
-      else
-      {
+      }else{
         printf("Erro ao ler o arquivo.");
       }
       fclose(r);
