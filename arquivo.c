@@ -31,7 +31,43 @@ void mostrarAlunos(FILE *pArquivo){
 
 int main(int argc, char *argv[]){
 
-    aluno a;
+    int op;
+    long tamArq;
+    aluno aux;
+    FILE *pArquivo;
+    
+    do{
+        system("cls");
+        printf(" --- Bem vindo ao gerenciador de alunos --- \n\n");
+        printf(" 1) Cadastrar novo aluno\n");
+        printf(" 2) Mostrar alunos cadastrados\n");
+        printf(" 3) Apagar todos os registros\n");
+        printf(" 0) Sair\n\n");
+        printf(" Escolha uma opcao: ");
+        scanf("%d", &op);
+
+        switch (op)
+        {
+            case 0:
+                printf("Saindo do sistema...\n");
+                system("pause");
+                break;
+            case 1:
+                /* code */
+                break;
+            case 2:
+                /* code */
+                break;
+            case 3:
+                /* code */
+                break;
+            default:
+                printf("Opcao invalida! Digite um dos numeros listados no menu.\n");
+                system("pause");
+                break;
+        }
+
+    }while(op != 0);
 
     return 0;
 }
