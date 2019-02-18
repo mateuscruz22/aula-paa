@@ -14,6 +14,21 @@ void inserirNoArquivo(FILE *pArquivo, aluno *aux){
     }
 }
 
+void mostrarAlunos(FILE *pArquivo){
+
+    char nomeAux[255];
+    int matriculaAux, diaAux, mesAux, anoAux;
+
+    while(!feof(pArquivo)){
+        fscanf(pArquivo, "%s %d %d/%d/%d\n", &nomeAux, &matriculaAux, &diaAux, &mesAux, &anoAux);
+        printf("\tNome: %s\n", nomeAux);
+        printf("\tMatricula: %d\n", matriculaAux);
+        printf("\tData de nascimento: %02d/%02d/%04d\n", diaAux, mesAux, anoAux);
+        printf("\t----------------------------------\n");
+    }
+
+}
+
 int main(int argc, char *argv[]){
 
     aluno a;
