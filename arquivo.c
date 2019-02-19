@@ -79,16 +79,20 @@ int main(int argc, char *argv[]){
                     if(tamArq != 0){
                         mostrarAlunos(pArquivo);
                     }else{
-                        printf("A lista de alunos esta vazia!");
+                        printf("A lista de alunos esta vazia!\n");
                     }
                 }else{
-                    printf("Erro ao ler o arquivo!");
+                    printf("Erro ao ler o arquivo!\n");
                 }
                 fclose(pArquivo);
                 system("pause");
                 break;
             case 3:
-                /* code */
+                system("cls");
+                pArquivo = fopen("registro.txt", "w");
+                fclose(pArquivo);
+                printf("Todos os registros foram apagados!\n");
+                system("pause");
                 break;
             default:
                 printf("Opcao invalida! Digite um dos numeros listados no menu.\n");
