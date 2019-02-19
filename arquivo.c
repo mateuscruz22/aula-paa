@@ -58,7 +58,7 @@ int main(int argc, char *argv[]){
                 system("cls");
                 printf(" --- Cadastrando novo aluno --- \n\n");
                 printf("Digite o nome do aluno: ");
-                scanf("%[^/n]s", &(aux->nome));
+                scanf("%[^\n]s", &(aux->nome));
                 printf("Digite a matricula: ");
                 scanf("%d", &(aux->matricula));
                 printf("Digite a data de nascimento (DD MM AAAA): ");
