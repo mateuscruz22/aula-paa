@@ -21,10 +21,10 @@ void mostrarAlunos(FILE *pArquivo){
 
     while(!feof(pArquivo)){
         fscanf(pArquivo, "%s %d %d/%d/%d\n", &nomeAux, &matriculaAux, &diaAux, &mesAux, &anoAux);
-        printf("\tNome: %s\n", nomeAux);
-        printf("\tMatricula: %d\n", matriculaAux);
-        printf("\tData de nascimento: %02d/%02d/%04d\n", diaAux, mesAux, anoAux);
-        printf("\t----------------------------------\n");
+        printf("Nome: %s\n", nomeAux);
+        printf("Matricula: %d\n", matriculaAux);
+        printf("Data de nascimento: %02d/%02d/%04d\n", diaAux, mesAux, anoAux);
+        printf("----------------------------------\n");
     }
 
 }
@@ -71,7 +71,7 @@ int main(int argc, char *argv[]){
             case 2:
                 system("cls");
                 printf(" --- Lista de alunos cadastrados --- \n\n");
-                pArquivo = fopen("resgistro.txt", "r");
+                pArquivo = fopen("registro.txt", "r");
                 if(pArquivo != NULL){
                     fseek(pArquivo, 0, SEEK_END);
                     tamArq = ftell(pArquivo);
