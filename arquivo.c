@@ -33,7 +33,7 @@ int main(int argc, char *argv[]){
 
     int op;
     long tamArq;
-    aluno aux;
+    aluno *aux;
     FILE *pArquivo;
     
     do{
@@ -53,7 +53,19 @@ int main(int argc, char *argv[]){
                 system("pause");
                 break;
             case 1:
-                /* code */
+                setbuf(stdin, NULL);
+                aux = malloc(sizeof(aluno));
+                system("cls");
+                printf("Difgite o nome do aluno: ");
+                scanf("%[^/n]s", &(aux->nome));
+                printf("Digite a matricula: ");
+                scanf("%d", &(aux->matricula));
+                printf("Digite a data de nascimento (DD MM AAAA): ");
+                scanf("%d %d %d", &(aux->dia), &(aux->mes), &(aux->ano));
+                pArquivo = fopen("registro.txt", "a");
+                inserirNoArquivo(pArquivo, aux);
+                fclose(pArquivo);
+                system("pause");
                 break;
             case 2:
                 /* code */
