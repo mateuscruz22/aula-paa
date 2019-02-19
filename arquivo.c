@@ -56,7 +56,8 @@ int main(int argc, char *argv[]){
                 setbuf(stdin, NULL);
                 aux = malloc(sizeof(aluno));
                 system("cls");
-                printf("Difgite o nome do aluno: ");
+                printf(" --- Cadastrando novo aluno --- \n\n");
+                printf("Digite o nome do aluno: ");
                 scanf("%[^/n]s", &(aux->nome));
                 printf("Digite a matricula: ");
                 scanf("%d", &(aux->matricula));
@@ -68,7 +69,23 @@ int main(int argc, char *argv[]){
                 system("pause");
                 break;
             case 2:
-                /* code */
+                system("cls");
+                printf(" --- Lista de alunos cadastrados --- \n\n");
+                pArquivo = fopen("resgistro.txt", "r");
+                if(pArquivo != NULL){
+                    fseek(pArquivo, 0, SEEK_END);
+                    tamArq = ftell(pArquivo);
+                    fseek(pArquivo, 0, SEEK_SET);
+                    if(tamArq != 0){
+                        mostrarAlunos(pArquivo);
+                    }else{
+                        printf("A lista de alunos esta vazia!");
+                    }
+                }else{
+                    printf("Erro ao ler o arquivo!");
+                }
+                fclose(pArquivo);
+                system("pause");
                 break;
             case 3:
                 /* code */
