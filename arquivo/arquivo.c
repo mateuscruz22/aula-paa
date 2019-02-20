@@ -95,7 +95,7 @@ int main(int argc, char *argv[]){
                 system("pause");
                 break;
             default:
-                printf("Opcao invalida! Digite um dos numeros listados no menu.\n");
+                printf("Opcao invalida! Digite um dos numeros listados no menu!\n");
                 system("pause");
                 break;
         }
