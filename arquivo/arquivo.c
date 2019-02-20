@@ -63,7 +63,7 @@ int main(int argc, char *argv[]){
                 scanf("%d", &(aux->matricula));
                 printf("Digite a data de nascimento (DD MM AAAA): ");
                 scanf("%d %d %d", &(aux->dia), &(aux->mes), &(aux->ano));
-                pArquivo = fopen("registro.txt", "a");
+                pArquivo = fopen("registro", "ab");
                 inserirNoArquivo(pArquivo, aux);
                 fclose(pArquivo);
                 system("pause");
@@ -71,7 +71,7 @@ int main(int argc, char *argv[]){
             case 2:
                 system("cls");
                 printf(" --- Lista de alunos cadastrados --- \n\n");
-                pArquivo = fopen("registro.txt", "r");
+                pArquivo = fopen("registro", "rb");
                 if(pArquivo != NULL){
                     fseek(pArquivo, 0, SEEK_END);
                     tamArq = ftell(pArquivo);
@@ -89,7 +89,7 @@ int main(int argc, char *argv[]){
                 break;
             case 3:
                 system("cls");
-                pArquivo = fopen("registro.txt", "w");
+                pArquivo = fopen("registro", "wb");
                 fclose(pArquivo);
                 printf("Todos os registros foram apagados!\n");
                 system("pause");
