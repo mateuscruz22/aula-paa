@@ -4,7 +4,7 @@
 struct tipoAluno{
     char nome[255];
     int matricula, dia, mes, ano;
-    struct tipoAluno *proximmo;
+    struct tipoAluno *proximo;
 };
 
 struct tipoLista{
@@ -14,6 +14,22 @@ struct tipoLista{
 void criarLista(struct tipoLista *l){
     l->cabeca = NULL;
     l->cauda = l->cabeca;
+}
+
+void inserirLista(struct tipoLista *l, struct tipoAluno *aux){
+    if(l->cabeca == NULL){
+        l->cabeca = malloc(sizeof(struct tipoAluno));
+        l->cabeca = aux;
+        l->cauda = l->cabeca;
+        l->cauda->proximo = NULL;
+        printf("Inserido na lista com sucesso!\n");
+    }else{
+        l->cauda->proximo = malloc(sizeof(struct tipoAluno));
+        l->cauda->proximo = aux;
+        l->cauda = l->cauda->proximo;
+        l->cauda->proximo = NULL;
+        printf("Inserido na lista com sucesso!\n");
+    }
 }
 
 int main(int argc, char *argv[]){
