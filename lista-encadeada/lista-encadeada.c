@@ -39,8 +39,9 @@ void mostrarLista(struct tipoLista *l){
         printf("Nao existem alunos cadastrados!\n");
         free(aux);
     }else{
+
+        printf(" --- Lista de alunos --- \n\n");
         for(aux = l->cabeca; aux != NULL; aux = aux->proximo){
-            printf(" --- Lista de alunos --- \n\n");
             printf("Nome: %s\n", (aux->nome));
             printf("Matricula: %d\n", (aux->matricula));
             printf("Data de Nascimento: %02d/%02d/%04d\n", (aux->dia), (aux->mes), (aux->ano));
@@ -54,6 +55,7 @@ void mostrarLista(struct tipoLista *l){
 int main(int argc, char *argv[]){
     
    struct tipoLista *lista = malloc(sizeof(struct tipoLista));
+   struct tipoAluno *aux;
    int op;
 
    criarLista(lista);
@@ -68,25 +70,39 @@ int main(int argc, char *argv[]){
         printf(" Escolha uma opcao: ");
         scanf("%d", &op);
 
-        switch (op)
-        {
+        switch (op){
+
             case 0:
+                system("cls");
                 printf("Saindo do sistema...\n");
                 system("pause");
                 break;
             case 1:
                 system("cls");
-                // code
+                setbuf(stdin, NULL);
+                aux = malloc(sizeof(struct tipoAluno));
+                
+                printf("Digite o nome do aluno: ");
+                scanf("%[^\n]s", &(aux->nome));
+                printf("Digite a matricula: ");
+                scanf("%d", &(aux->matricula));
+                printf("Digite a data de nascimento (DD MM AAAA): ");
+                scanf("%d %d %d", &(aux->dia), &(aux->mes), &(aux->ano));
+
+                inserirLista(lista, aux);
+
                 system("pause");
                 break;
             case 2:
                 system("cls");
-                // code
+                mostrarLista(lista);
                 system("pause");
                 break;
             case 3:
                 system("cls");
-                // code
+                free(lista);
+                struct tipoLista *lista = malloc(sizeof(struct tipoLista));
+                criarLista(lista);
                 printf("Todos os registros foram apagados!\n");
                 system("pause");
                 break;
