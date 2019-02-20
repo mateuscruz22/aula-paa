@@ -32,6 +32,25 @@ void inserirLista(struct tipoLista *l, struct tipoAluno *aux){
     }
 }
 
+void mostrarLista(struct tipoLista *l){
+    struct tipoAluno *aux = malloc(sizeof(struct tipoAluno));
+    
+    if (l->cabeca == NULL) {
+        printf("Nao existem alunos cadastrados!\n");
+        free(aux);
+    }else{
+        for(aux = l->cabeca; aux != NULL; aux = aux->proximo){
+            printf(" --- Lista de alunos --- \n\n");
+            printf("Nome: %s\n", (aux->nome));
+            printf("Matricula: %d\n", (aux->matricula));
+            printf("Data de Nascimento: %02d/%02d/%04d\n", (aux->dia), (aux->mes), (aux->ano));
+            printf("----------------------------------\n");
+        }
+        free(aux);
+    }
+    
+}
+
 int main(int argc, char *argv[]){
     
    struct tipoLista *lista = malloc(sizeof(struct tipoLista));
